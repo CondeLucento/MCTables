@@ -66,6 +66,8 @@ Los usuarios simplemente pueden:
 
 El programa genera automáticamente el **código LaTeX listo para pegar**, asegurando una **precisión del 100 % en la representación del algoritmo**.
 
+Puedes acceder al código fuente en los archivos del repositorio o bien usar el [Google Colab]([https://direccion.com](https://colab.research.google.com/drive/1DqE3bAAjAlz3yKFjbnRlixUpJeXvZfDs?usp=sharing))
+
 ---
 
 ## 🇬🇧 Package Description (English)
@@ -126,3 +128,5 @@ Users only need to:
 2. Enter the **page sequence**.
 
 The script then generates **ready-to-paste LaTeX code**, ensuring **100 % accuracy in the algorithm representation**.
+
+You can access the source code in the repository files or use the [Google Colab]([https://direccion.com](https://colab.research.google.com/drive/1DqE3bAAjAlz3yKFjbnRlixUpJeXvZfDs?usp=sharing))
