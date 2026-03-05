@@ -1,0 +1,84 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{MCTables}
+\usepackage{amsmath}
+\usepackage[hidelinks]{hyperref}
+
+\title{Demostración del Paquete \MCT}
+\author{Conde Lucento, 2026}
+\date{ }
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Introducción}
+El paquete \MCT{} ha sido diseñado para automatizar la representación de diversos algoritmos de sustitución en memoria caché. Permite generar cronogramas detallados que gestionan de forma autónoma los contadores de aciertos y fallos, calculando automáticamente sus respectivas tasas (TA/TF) y aplicando un estilo visual intuitivo y normalizado.
+
+\section{Comandos}
+El paquete incluye diferentes comandos entre los que se incluyen:
+\begin{enumerate}
+    \item \textbf{Apertura (\texttt{\textbackslash fifo}):} 
+    \begin{itemize}
+        \item Primer argumento: Los nombres de las filas separados por comas.
+        \item Segundo argumento: La secuencia de entrada para la cabecera.
+        \item Tercer argumento (Opcional): El título que aparecerá sobre la tabla.
+        \item Cuarto argumento (Opcional): El prefijo que se usará en el Índice, siendo el prefijo por defecto: FIFO.
+    \end{itemize}
+    
+    \item \textbf{Cuerpo (\texttt{\textbackslash fila}):} 
+    Se debe poner un comando \texttt{\textbackslash fila} por cada marco definido. Dentro, se separan las columnas con \texttt{\&}. Los comandos \texttt{\textbackslash fallo} y \texttt{\textbackslash acierto} actualizan los contadores automáticamente.
+    
+    \item \textbf{Cierre (\texttt{\textbackslash endfifo}):} 
+    Calcula automáticamente los totales, la Tasa de Aciertos (\textbf{TA}) y la Tasa de Fallos (\textbf{TF}) y dibuja la línea de separación.
+
+    \item \textbf{Logotipo del paquete \((\texttt{\textbackslash MCT}):\)} que imprime: \MCT.
+\end{enumerate}
+
+\newpage
+\section{Ejemplos de Cronogramas}
+
+\fifo{0,1,2,3}{1,3,2,5,3,2,5,7,4,3,2,4,5,2,1,3,2}[Ejemplo de FIFO]
+
+    \fila{\fallo{1}&&&&&&&\fallo{7}&&&&&\fallo{5}&&&&}
+    \fila{&\fallo{3}&&&\acierto{3}&&&&\fallo{4}&&&\acierto{4}&&&\fallo{1}&&}
+    \fila{&&\fallo{2}&&&\acierto{2}&&&&\fallo{3}&&&&&&\acierto{3}&}
+    \fila{&&&\fallo{5}&&&\acierto{5}&&&&\fallo{2}&&&\acierto{2}&&&\acierto{2}}
+
+\endfifo
+
+\fifo{0,1,2,3,4}{2,3,1,2,1,3,2,4,5,4,2,3,1,2,4,5,6,2,3,4,1,4,2,1}[Ejemplo de LRU][LRU]
+
+    \fila{\fallo{2}&&&\acierto{2}&&&\acierto{2}&&&&\acierto{2}&&&\acierto{2}&&&&\acierto{2}&&&&&\acierto{2}&}
+    \fila{&\fallo{3}&&&&\acierto{3}&&&&&&\acierto{3}&&&&&\fallo{6}&&&&&&&}
+    \fila{&&\fallo{1}&&\acierto{1}&&&&&&&&\acierto{1}&&&&&&\fallo{3}&&&&&}
+    \fila{&&&&&&&\fallo{4}&&\acierto{4}&&&&&\acierto{4}&&&&&\acierto{4}&&\acierto{4}&&}
+    \fila{&&&&&&&&\fallo{5}&&&&&&&\acierto{5}&&&&&\fallo{1}&&&\acierto{1}}
+
+\endfifo
+\newpage
+
+\fifo{0,1,2,3}{2,1,3,2,4,5,6,2,1,3,4,5,6,1,2,3,1,5}[Ejemplo de FLU][FLU]
+
+    \fila{\fallo{2}\flu{1}&&&\acierto{2}\flu{2}&&&&\acierto{2}\flu{3}&&&&&&&\acierto{2}\flu{4}&&&}
+    \fila{&\fallo{1}\flu{1}&&&&\fallo{5}\flu{1}&\fallo{6}\flu{1}&&\fallo{1}\flu{1}&&&\fallo{5}\flu{1}&\fallo{6}\flu{1}&\fallo{1}\flu{1}&&&\acierto{1}\flu{2}&\fallo{5}\flu{1}}
+    \fila{&&\fallo{3}\flu{1}&&&&&&&\acierto{3}\flu{2}&&&&&&\acierto{3}\flu{3}&&}
+    \fila{&&&&\fallo{4}\flu{1}&&&&&&\acierto{4}\flu{2}&&&&&&&}
+
+\endfifo
+
+\section{QoL (Calidad de Vida)}
+Dada la complejidad y rigidez de la sintaxis de las tablas en \LaTeX{}, es habitual que escribir estos cronogramas manualmente resulte confuso y propenso a errores. Para solucionar este inconveniente, he desarrollado un script en \textit{Python} que, a partir del número de marcos y la secuencia de acceso a memoria, genera automáticamente el código listo para ser compilado.
+
+\vspace{3mm}
+Se recomienda utilizar el generador automático para agilizar el trabajo. Puede acceder a las herramientas de las siguientes formas:
+
+\begin{itemize}
+    \item \textbf{Google Colab (Ejecución inmediata):} \href{https://colab.research.google.com/drive/1DqE3bAAjAlz3yKFjbnRlixUpJeXvZfDs?usp=sharing}{\color{blue}Haz clic aquí\color{black}} para ejecutar el generador en la nube.
+    \item \textbf{Repositorio GitHub (Código fuente):} \href{https://github.com/CondeLucento/MCTables}{\color{blue}Enlace al repositorio\color{black}} para descargar los scripts \texttt{.py}.
+\end{itemize}
+
+\end{document}
