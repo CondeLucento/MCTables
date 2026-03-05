@@ -2,7 +2,7 @@
 *by Conde Lucento, 2026*
 
 <p align="center">
-  <img src="MCTable_Logo.png" alt="" width="550">
+  <img src="MCT_Logo.png" alt="" width="550">
 </p>
 
 ---
