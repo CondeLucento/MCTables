@@ -68,7 +68,16 @@ El programa genera automáticamente el **código LaTeX listo para pegar**, asegu
 
 Puedes acceder al código fuente en los archivos del repositorio o bien usar el [Google Colab](https://colab.research.google.com/drive/1DqE3bAAjAlz3yKFjbnRlixUpJeXvZfDs?usp=sharing)
 
----
+## Instalación
+Copia el archivo MCTables.sty en la carpeta de tu proyecto.
+
+Añade \usepackage{MCTables} en tu preámbulo.
+
+¡Y empieza a documentar!
+
+```latex
+\usepackage{MCTables}
+```
 
 ## 🇬🇧 Package Description (English)
 
@@ -130,3 +139,16 @@ Users only need to:
 The script then generates **ready-to-paste LaTeX code**, ensuring **100 % accuracy in the algorithm representation**.
 
 You can access the source code in the repository files or use the [Google Colab](https://colab.research.google.com/drive/1DqE3bAAjAlz3yKFjbnRlixUpJeXvZfDs?usp=sharing)
+
+## Installation
+Copy the MCTables.sty file into your project folder.
+
+Add \usepackage{MCTables} to your preamble.
+
+Start documenting!
+```latex
+\usepackage{MCTables}
+```
+## Licencia / License
+Copyright (c) 2026 Conde Lucento. Distribuido bajo la Licencia MIT.
+---
