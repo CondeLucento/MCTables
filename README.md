@@ -1,4 +1,4 @@
-# MCTable
+# MCTables
 *by Conde Lucento, 2026*
 
 <p align="center">
