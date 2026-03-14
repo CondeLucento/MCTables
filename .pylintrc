@@ -1,9 +1,2 @@
 [MASTER]
-# Desactiva los avisos que no te interesan ahora mismo
-disable=
-    C0114, # Missing module docstring
-    C0116, # Missing function docstring
-    C0103, # Invalid name (para que acepte tus mayúsculas)
-    R0801, # Duplicate code (para que no se queje del código LaTeX repetido)
-    C0304  # Final newline missing (si no quieres añadir el enter al final)
-    W0621
+disable=C0114,C0116,C0103,R0801,C0304,W0621
