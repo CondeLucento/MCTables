@@ -6,3 +6,4 @@ disable=
     C0103, # Invalid name (para que acepte tus mayúsculas)
     R0801, # Duplicate code (para que no se queje del código LaTeX repetido)
     C0304  # Final newline missing (si no quieres añadir el enter al final)
+    W0621
